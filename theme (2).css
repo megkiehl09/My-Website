@@ -1,0 +1,223 @@
+/* ============================================
+   THEME: "Easy Miles" — running as a destresser
+   Custom CSS layered on top of Bootstrap 5
+   ============================================ */
+
+:root {
+  --dawn-cream: #FAF6F1;
+  --slate: #2C3E50;
+  --slate-deep: #1F2933;
+  --sage: #7C9885;
+  --coral: #E8967A;
+  --ink: #1F2624;
+  --line: #E4DCD0;
+}
+
+/* ---- Typography ---- */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--dawn-cream);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, .brand-font {
+  font-family: 'Lora', Georgia, serif;
+  font-weight: 600;
+  color: var(--slate-deep);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-weight: 500; }
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 600;
+}
+
+/* ---- Navbar override ---- */
+.navbar-dawn {
+  background-color: var(--dawn-cream) !important;
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar-dawn .navbar-brand {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  color: var(--slate-deep) !important;
+  font-size: 1.3rem;
+}
+
+.navbar-dawn .nav-link {
+  color: var(--slate) !important;
+  font-weight: 500;
+  font-size: 0.95rem;
+  margin-left: 0.5rem;
+  position: relative;
+}
+
+.navbar-dawn .nav-link.active {
+  color: var(--coral) !important;
+}
+
+.navbar-dawn .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--coral);
+  transition: width 0.25s ease;
+}
+
+.navbar-dawn .nav-link:hover::after,
+.navbar-dawn .nav-link.active::after {
+  width: 100%;
+}
+
+/* ---- Buttons ---- */
+.btn-dawn {
+  background-color: var(--slate-deep);
+  border: none;
+  color: var(--dawn-cream);
+  font-weight: 600;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-dawn:hover {
+  background-color: var(--coral);
+  color: var(--slate-deep);
+  transform: translateY(-2px);
+}
+
+.btn-dawn-outline {
+  background: transparent;
+  border: 1.5px solid var(--slate-deep);
+  color: var(--slate-deep);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.btn-dawn-outline:hover {
+  background: var(--slate-deep);
+  color: var(--dawn-cream);
+}
+
+/* ---- Hero ---- */
+.hero-dawn {
+  background: linear-gradient(135deg, var(--slate-deep) 0%, var(--slate) 100%);
+  color: var(--dawn-cream);
+  padding: 7rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-dawn h1 {
+  color: var(--dawn-cream);
+}
+
+.hero-dawn .lead {
+  color: #D8DEE3;
+  font-size: 1.2rem;
+}
+
+/* Signature "route line" motif - a winding pace line used as a divider */
+.route-divider {
+  width: 100%;
+  height: 48px;
+  display: block;
+  margin: 0 auto;
+}
+
+.route-divider path {
+  stroke: var(--coral);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 6 8;
+}
+
+/* ---- Cards ---- */
+.card-dawn {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+}
+
+.card-dawn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(44, 62, 80, 0.1);
+}
+
+.card-dawn .icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 1.1rem;
+}
+
+/* ---- Section spacing ---- */
+.section-pad {
+  padding: 5rem 0;
+}
+
+.section-alt {
+  background-color: #F2EBE2;
+}
+
+/* ---- Footer ---- */
+.footer-dawn {
+  background-color: var(--slate-deep);
+  color: #B9C3CC;
+  padding: 2.5rem 0;
+}
+
+.footer-dawn a {
+  color: #D8DEE3;
+}
+
+/* ---- Video / embed frame ---- */
+.embed-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(31, 38, 36, 0.18);
+  border: 1px solid var(--line);
+}
+
+/* ---- Misc ---- */
+.text-coral { color: var(--coral); }
+.text-sage { color: var(--sage); }
+.bg-sage { background-color: var(--sage); }
+
+.divider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral);
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-dawn { padding: 4.5rem 0 3.5rem; }
+}
