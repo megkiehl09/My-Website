@@ -1,0 +1,315 @@
+/* =============================================
+   scratch.css — From-Scratch Custom Stylesheet
+   Running page for Megan Kiehl
+   Professional, high-contrast palette
+   4+ style definitions, font-color, font-family,
+   3+ divs for layout/positioning
+   ============================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* DIV 1: body */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  line-height: 1.7;
+}
+
+/* DIV 2: site-nav */
+.site-nav {
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #0c5c3d;
+}
+
+.nav-brand {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.02em;
+}
+
+.nav-links a {
+  color: #d6d6d6;
+  text-decoration: none;
+  margin-left: 24px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ffffff;
+}
+
+/* DIV 3: run-hero */
+.run-hero {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  text-align: center;
+  padding: 110px 20px;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 3px solid #0c5c3d;
+}
+
+.hero-content h1 {
+  font-family: 'Georgia', serif;
+  font-size: 3.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: #d6d6d6;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  max-width: 540px;
+  margin: 0 auto 28px;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: #0c5c3d;
+  color: #ffffff;
+  padding: 12px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: background-color 0.2s;
+}
+
+.hero-btn:hover {
+  background-color: #094830;
+  color: #ffffff;
+}
+
+/* DIV 4: anchor-bar */
+.anchor-bar {
+  background-color: #f7f7f5;
+  border-bottom: 1px solid #dcdcdc;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.anchor-bar a {
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 14px 24px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.anchor-bar a:hover {
+  color: #0c5c3d;
+  border-bottom-color: #0c5c3d;
+}
+
+/* DIV 5: content-section */
+.content-section {
+  padding: 64px 20px;
+}
+
+.alt-bg { background-color: #f7f7f5; }
+
+/* DIV 6: content-wrap */
+.content-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.content-wrap h2 {
+  font-family: 'Georgia', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  border-left: 4px solid #0c5c3d;
+  padding-left: 14px;
+  margin-bottom: 20px;
+}
+
+.content-wrap p {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.02rem;
+  color: #44484c;
+  margin-bottom: 16px;
+}
+
+/* IMAGES */
+.section-img {
+  width: 100%;
+  border-radius: 4px;
+  margin: 24px 0 8px;
+  display: block;
+  border: 1px solid #dcdcdc;
+}
+
+.img-caption {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.82rem;
+  color: #777777;
+  font-style: italic;
+}
+
+/* LISTS */
+.highlight-list {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  color: #1a1a1a;
+  padding-left: 20px;
+}
+
+.highlight-list > li {
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.sub-list {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.92rem;
+  color: #44484c;
+  margin-top: 8px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.sub-list li { margin-bottom: 4px; }
+
+/* WHY GRID */
+.why-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.why-card {
+  flex: 1 1 220px;
+  background-color: #ffffff;
+  border: 1px solid #dcdcdc;
+  border-top: 3px solid #0c5c3d;
+  border-radius: 4px;
+  padding: 24px 20px;
+}
+
+.why-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.why-card h3 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.92rem;
+  color: #44484c;
+  margin: 0;
+}
+
+/* GEAR LIST */
+.gear-list {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.97rem;
+  color: #44484c;
+  padding-left: 20px;
+}
+
+.gear-list li { margin-bottom: 10px; }
+
+/* VIDEO */
+.video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  margin: 20px 0;
+  border: 1px solid #dcdcdc;
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.video-fallback {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.85rem;
+  color: #777777;
+  margin-top: 10px;
+}
+
+.video-fallback a {
+  color: #0c5c3d;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.video-fallback a:hover { text-decoration: underline; }
+
+.back-top {
+  text-align: center;
+  margin-top: 28px;
+}
+
+.back-top a {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #0c5c3d;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.back-top a:hover { text-decoration: underline; }
+
+/* DIV 7: site-footer */
+.site-footer {
+  background-color: #1a1a1a;
+  color: #d6d6d6;
+  text-align: center;
+  padding: 28px 20px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.88rem;
+  border-top: 1px solid #0c5c3d;
+}
+
+.site-footer a {
+  color: #6fcf9b;
+  text-decoration: none;
+}
+
+.site-footer a:hover { text-decoration: underline; }

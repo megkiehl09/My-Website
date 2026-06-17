@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sports Wordle – Megan Kiehl</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121213;
+      color: #ffffff;
+    }
+
+    .navbar {
+      background-color: #1a1a1a;
+      border-bottom: 1px solid #0c5c3d;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-brand {
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-decoration: none;
+      font-family: 'Georgia', serif;
+    }
+
+    .nav-links a {
+      color: #d6d6d6;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: #ffffff; }
+
+    #game-container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+      text-align: center;
+    }
+
+    .game-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      border-bottom: 1px solid #3a3a3c;
+      padding-bottom: 12px;
+      margin-bottom: 6px;
+      margin-top: 20px;
+    }
+
+    .game-subtitle {
+      font-size: 0.82rem;
+      color: #818384;
+      margin-bottom: 16px;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.75rem;
+      color: #818384;
+      margin-bottom: 12px;
+    }
+
+    .legend-item { display: flex; align-items: center; gap: 5px; }
+    .legend-dot { width: 13px; height: 13px; border-radius: 2px; display: inline-block; }
+
+    #hint-text {
+      font-size: 0.8rem;
+      color: #818384;
+      margin-bottom: 10px;
+      font-style: italic;
+      min-height: 1.2rem;
+    }
+
+    #message-area {
+      min-height: 36px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      background-color: #ffffff22;
+      border-radius: 4px;
+      padding: 6px 16px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    #board {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .tile-row { display: flex; gap: 5px; }
+
+    .tile {
+      width: 58px;
+      height: 58px;
+      border: 2px solid #3a3a3c;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #ffffff;
+      transition: background-color 0.3s, border-color 0.1s;
+      user-select: none;
+    }
+
+    .tile.filled  { border-color: #565758; }
+    .tile.correct { background-color: #538d4e; border-color: #538d4e; }
+    .tile.present { background-color: #b59f3b; border-color: #b59f3b; }
+    .tile.absent  { background-color: #3a3a3c; border-color: #3a3a3c; }
+
+    #keyboard {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .key-row { display: flex; gap: 5px; }
+
+    .key {
+      height: 58px;
+      min-width: 43px;
+      padding: 0 8px;
+      border: none;
+      border-radius: 4px;
+      background-color: #818384;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      transition: background-color 0.2s;
+      text-transform: uppercase;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .key:hover { filter: brightness(1.15); }
+    .key.correct { background-color: #538d4e; }
+    .key.present { background-color: #b59f3b; }
+    .key.absent  { background-color: #3a3a3c; }
+    .key.wide    { min-width: 66px; font-size: 0.72rem; }
+
+    #new-game-btn {
+      background-color: #538d4e;
+      border: none;
+      color: white;
+      padding: 10px 28px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-top: 12px;
+      display: none;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #new-game-btn:hover { background-color: #3e6e3a; }
+
+    .site-footer {
+      background-color: #1a1a1a;
+      color: #d6d6d6;
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 0.88rem;
+      border-top: 1px solid #0c5c3d;
+      margin-top: 20px;
+    }
+
+    .site-footer a { color: #6fcf9b; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a class="nav-brand" href="../index.html">Megan Kiehl</a>
+  <div class="nav-links">
+    <a href="../index.html">Home</a>
+    <a href="resume.html">Résumé</a>
+    <a href="running.html">Running</a>
+    <a href="film.html">Film Room</a>
+    <a href="data.html">Data</a>
+    <a href="app.html" class="active">Word Game</a>
+  </div>
+</nav>
+
+<div id="game-container">
+  <h1 class="game-title">⚡ SPORTS WORDLE</h1>
+  <p class="game-subtitle">Guess the 5-letter sports word in 6 tries</p>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#538d4e;"></div> Correct spot</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#b59f3b;"></div> Wrong spot</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#3a3a3c;"></div> Not in word</div>
+  </div>
+
+  <div id="hint-text"></div>
+  <div id="message-area">&nbsp;</div>
+  <div id="board"></div>
+
+  <div id="keyboard">
+    <div class="key-row" id="krow-0"></div>
+    <div class="key-row" id="krow-1"></div>
+    <div class="key-row" id="krow-2"></div>
+  </div>
+
+  <button id="new-game-btn" onclick="initGame()">&#9654; New Game</button>
+</div>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Megan Kiehl &nbsp;|&nbsp;
+    <a href="../index.html">Home</a> &nbsp;|&nbsp;
+    <a href="resume.html">Résumé</a> &nbsp;|&nbsp;
+    <a href="running.html">Running</a> &nbsp;|&nbsp;
+    <a href="film.html">Film Room</a> &nbsp;|&nbsp;
+    <a href="data.html">Data</a>
+  </p>
+</footer>
+
+<script>
+const WORD_LIST = [
+  { word: "RELAY", hint: "A team race where a baton is passed between runners" },
+  { word: "TRACK", hint: "The oval surface where sprint and distance races are run" },
+  { word: "TEMPO", hint: "A hard but controlled training run pace" },
+  { word: "SPLIT", hint: "Your time recorded at each interval of a race" },
+  { word: "DRAFT", hint: "Running close behind another to reduce wind resistance" },
+  { word: "MILES", hint: "Distance runners count these obsessively" },
+  { word: "COACH", hint: "The person who writes your training plan" },
+  { word: "BATON", hint: "Passed between runners in a relay event" },
+  { word: "LUNGE", hint: "A common dynamic warmup movement before a race" },
+  { word: "SWEAT", hint: "The inevitable result of a hard workout" },
+  { word: "RACES", hint: "What runners enter every weekend in the season" },
+  { word: "SPORT", hint: "Running, swimming, football — they are all this" },
+  { word: "PACER", hint: "Someone who helps others run at a target speed" },
+  { word: "MEDAL", hint: "What top finishers take home from a championship" },
+  { word: "FIELD", hint: "Half of 'Track and ___' — where throwing events happen" },
+  { word: "CROSS", hint: "As in '_____ country' running through trails and hills" },
+  { word: "SPURT", hint: "A sudden burst of speed at the end of a race" },
+  { word: "THROW", hint: "What discus, shot put, and javelin athletes do" },
+  { word: "VAULT", hint: "Pole _____ — jumping over a bar with a flexible pole" },
+  { word: "GRACE", hint: "What elite runners have when their form is perfect" },
+  { word: "TIMER", hint: "The device officials use to record finish times" },
+  { word: "LANES", hint: "Athletes are assigned these on the track for sprints" },
+  { word: "RINGS", hint: "The five interlocking symbols of the Olympics" },
+  { word: "SCORE", hint: "The total points that determine the team winner" },
+  { word: "BLOCK", hint: "Starting _____ — what sprinters push off at race start" },
+];
+
+const KEYBOARD = [
+  ['Q','W','E','R','T','Y','U','I','O','P'],
+  ['A','S','D','F','G','H','J','K','L'],
+  ['ENTER','Z','X','C','V','B','N','M','⌫']
+];
+
+let target, hint, currentRow, currentCol, board, keyState, gameOver;
+
+function initGame() {
+  const pick = WORD_LIST[Math.floor(Math.random() * WORD_LIST.length)];
+  target = pick.word;
+  hint = pick.hint;
+  currentRow = 0;
+  currentCol = 0;
+  board = Array.from({length: 6}, () => Array(5).fill(''));
+  keyState = {};
+  gameOver = false;
+
+  document.getElementById('hint-text').textContent = '💡 ' + hint;
+  document.getElementById('message-area').innerHTML = '&nbsp;';
+  document.getElementById('new-game-btn').style.display = 'none';
+
+  renderBoard();
+  renderKeyboard();
+}
+
+function renderBoard() {
+  const el = document.getElementById('board');
+  el.innerHTML = '';
+  for (let r = 0; r < 6; r++) {
+    const row = document.createElement('div');
+    row.className = 'tile-row';
+    for (let c = 0; c < 5; c++) {
+      const tile = document.createElement('div');
+      tile.className = 'tile';
+      tile.id = `t${r}${c}`;
+      row.appendChild(tile);
+    }
+    el.appendChild(row);
+  }
+}
+
+function renderKeyboard() {
+  KEYBOARD.forEach((keys, ri) => {
+    const row = document.getElementById('krow-' + ri);
+    row.innerHTML = '';
+    keys.forEach(k => {
+      const btn = document.createElement('button');
+      btn.className = 'key' + (k.length > 1 ? ' wide' : '');
+      btn.textContent = k;
+      btn.id = 'key-' + k;
+      if (keyState[k]) btn.classList.add(keyState[k]);
+      btn.addEventListener('click', () => handleKey(k));
+      row.appendChild(btn);
+    });
+  });
+}
+
+function handleKey(key) {
+  if (gameOver) return;
+  if (key === '⌫' || key === 'BACKSPACE') {
+    if (currentCol > 0) {
+      currentCol--;
+      board[currentRow][currentCol] = '';
+      setTile(currentRow, currentCol, '', '');
+    }
+  } else if (key === 'ENTER') {
+    submitGuess();
+  } else if (/^[A-Z]$/.test(key) && currentCol < 5) {
+    board[currentRow][currentCol] = key;
+    setTile(currentRow, currentCol, key, 'filled');
+    currentCol++;
+  }
+}
+
+function setTile(r, c, letter, cls) {
+  const t = document.getElementById(`t${r}${c}`);
+  t.textContent = letter;
+  t.className = 'tile' + (cls ? ' ' + cls : '');
+}
+
+function setMessage(msg) {
+  document.getElementById('message-area').textContent = msg || '\u00a0';
+}
+
+function submitGuess() {
+  if (currentCol < 5) { setMessage("Not enough letters!"); return; }
+
+  const guess = board[currentRow].join('');
+  const result = scoreGuess(guess, target);
+
+  result.forEach((state, c) => {
+    setTimeout(() => setTile(currentRow, c, guess[c], state), c * 80);
+  });
+
+  const priority = { correct: 3, present: 2, absent: 1 };
+  setTimeout(() => {
+    result.forEach((state, c) => {
+      const k = guess[c];
+      if (!keyState[k] || priority[state] > priority[keyState[k]]) keyState[k] = state;
+    });
+    renderKeyboard();
+  }, 5 * 80 + 100);
+
+  currentRow++;
+  currentCol = 0;
+
+  setTimeout(() => {
+    if (guess === target) {
+      const msgs = ["Genius! 🎉", "Magnificent! 🎉", "Impressive! 🎉", "Splendid! 🎉", "Great! 🎉", "Phew! 😅"];
+      setMessage(msgs[Math.min(currentRow - 1, 5)]);
+      gameOver = true;
+      document.getElementById('new-game-btn').style.display = 'inline-block';
+    } else if (currentRow === 6) {
+      setMessage("The word was: " + target);
+      gameOver = true;
+      document.getElementById('new-game-btn').style.display = 'inline-block';
+    }
+  }, 5 * 80 + 300);
+}
+
+function scoreGuess(guess, target) {
+  const result = Array(5).fill('absent');
+  const tArr = target.split('');
+  const gArr = guess.split('');
+  const used = Array(5).fill(false);
+
+  gArr.forEach((ch, i) => {
+    if (ch === tArr[i]) { result[i] = 'correct'; used[i] = true; gArr[i] = null; }
+  });
+
+  gArr.forEach((ch, i) => {
+    if (!ch) return;
+    const j = tArr.findIndex((t, idx) => t === ch && !used[idx]);
+    if (j !== -1) { result[i] = 'present'; used[j] = true; }
+  });
+
+  return result;
+}
+
+document.addEventListener('keydown', e => {
+  const k = e.key.toUpperCase();
+  if (k === 'BACKSPACE') handleKey('⌫');
+  else if (k === 'ENTER') handleKey('ENTER');
+  else if (/^[A-Z]$/.test(k)) handleKey(k);
+});
+
+initGame();
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+/* =============================================
+   Megan Kiehl - Custom Stylesheet (style.css)
+   Bootstrap theme overrides — professional & readable
+   ============================================= */
+
+:root {
+  --ink:          #1a1a1a;   /* primary text */
+  --ink-soft:     #3d3d3d;   /* secondary text — still dark, high contrast */
+  --accent:       #0c5c3d;   /* deep forest green accent */
+  --accent-soft:  #eef5f1;   /* pale green background tint */
+  --hairline:     #d8d8d8;
+  --paper:        #ffffff;
+  --paper-warm:   #f7f7f5;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--ink-soft);
+  background-color: var(--paper);
+  line-height: 1.7;
+  font-size: 1.02rem;
+}
+
+h1, h2, h3, h4, h5, h6,
+.display-3, .display-4, .display-5 {
+  font-family: 'Georgia', serif;
+  color: var(--ink);
+}
+
+p {
+  color: var(--ink-soft);
+}
+
+a {
+  color: var(--accent);
+}
+
+a:hover {
+  color: #094830;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: var(--ink) !important;
+  border-bottom: 3px solid var(--accent);
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.navbar-brand {
+  font-family: 'Georgia', serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  color: #ffffff !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #e6e6e6 !important;
+  font-size: 0.93rem;
+  font-weight: 500;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #6fcf9b !important;
+}
+
+/* === HERO === */
+.hero-section {
+  background-color: var(--ink);
+  min-height: 46vh;
+  padding: 70px 20px;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 4px solid var(--accent);
+}
+
+.hero-section h1 {
+  color: #ffffff;
+}
+
+.hero-section .lead {
+  color: #e6e6e6;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* === SECTION HEADINGS === */
+.section-heading {
+  font-family: 'Georgia', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--ink);
+  border-left: 5px solid var(--accent);
+  padding-left: 16px;
+  margin-bottom: 1.3rem;
+}
+
+/* === STAT CARDS === */
+.stat-card {
+  background-color: var(--accent-soft);
+  border-left: 5px solid var(--accent);
+}
+
+.stat-number {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: 'Georgia', serif;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+/* === CARDS === */
+.card {
+  border: 1px solid var(--hairline);
+}
+
+.explore-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border-top: 4px solid var(--accent);
+}
+
+.explore-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10) !important;
+}
+
+.card-title {
+  font-family: 'Georgia', serif;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.card-text {
+  color: var(--ink-soft);
+}
+
+.icon-accent { color: var(--accent); }
+
+/* === BUTTONS === */
+.btn {
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.btn-dark {
+  background-color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-dark:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline-light {
+  border-width: 2px;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: var(--ink);
+}
+
+.btn-light:hover {
+  background-color: var(--accent-soft);
+}
+
+/* === BADGES === */
+.badge {
+  font-weight: 600;
+}
+
+.badge.bg-success {
+  background-color: var(--accent) !important;
+}
+
+/* === RESUME === */
+.resume-section {
+  border-bottom: 1px solid var(--hairline);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.resume-section h3 {
+  color: var(--accent);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.resume-section p,
+.resume-section li {
+  color: var(--ink-soft);
+}
+
+.resume-job-title {
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+
+.resume-org {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.resume-date {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* === VIDEO === */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.video-fallback {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  margin-top: 12px;
+}
+
+.video-fallback a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.video-fallback a:hover { text-decoration: underline; }
+
+/* === TABLEAU EMBED WRAPPER === */
+.tableau-wrap {
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: 16px;
+  background-color: var(--paper-warm);
+}
+
+/* === TEXT UTILITIES OVERRIDE === */
+.text-muted {
+  color: var(--ink-soft) !important;
+}
+
+/* === SECTION BACKGROUNDS === */
+.bg-light {
+  background-color: var(--paper-warm) !important;
+}
+
+/* === FOOTER === */
+footer.site-footer-bs {
+  background-color: var(--ink) !important;
+  border-top: 3px solid var(--accent);
+  color: #e6e6e6;
+}
+
+footer.site-footer-bs a {
+  color: #6fcf9b !important;
+  text-decoration: none;
+}
+
+footer.site-footer-bs a:hover { text-decoration: underline; }
