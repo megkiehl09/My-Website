@@ -1,0 +1,173 @@
+/* ====================================================
+   scratch.css — hand-written stylesheet for scratch.html
+   No Bootstrap. Built from scratch.
+   ==================================================== */
+
+/* Style definition 1: base page styling, custom background image */
+body {
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif; /* style: font family */
+  color: #2f3b35; /* style: font color */
+  background-image: linear-gradient(rgba(20, 26, 23, 0.55), rgba(20, 26, 23, 0.75)),
+                     url('https://images.pexels.com/photos/6906/sunset-silhouette-golden-hour-goldenhour.jpg?auto=compress&cs=tinysrgb&w=1600');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  line-height: 1.7;
+}
+
+/* Style definition 2: the main content wrapper div */
+.page-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+/* Style definition 3: card-like content blocks */
+.note-block {
+  background-color: #fdfaf3; /* custom background color on inner blocks */
+  border-left: 6px solid #b9714f;
+  border-radius: 4px;
+  padding: 1.75rem 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Style definition 4: headings, second font-color/font-family pairing */
+h1, h2 {
+  font-family: 'Courier New', monospace; /* style: font family */
+  color: #b9714f; /* style: font color */
+  letter-spacing: 0.03em;
+}
+
+h1 {
+  font-size: 2.3rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px dashed #b9714f;
+  padding-bottom: 0.4rem;
+}
+
+/* Style definition 5: the header banner div */
+.banner {
+  text-align: center;
+  color: #fdfaf3;
+  padding: 3rem 1rem 2rem;
+}
+
+.banner h1 {
+  color: #fdfaf3;
+}
+
+.banner p {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #e7ddca;
+}
+
+/* Style definition 6: nested list styling */
+.gear-list {
+  background-color: #f1ece0;
+  padding: 1.25rem 1.5rem 1.25rem 2.5rem;
+  border-radius: 6px;
+}
+
+.gear-list li {
+  margin-bottom: 0.5rem;
+}
+
+.gear-list ol {
+  margin-top: 0.5rem;
+}
+
+/* Style definition 7: the image styling */
+.scratch-img {
+  width: 100%;
+  max-width: 480px;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 6px;
+  border: 4px solid #fdfaf3;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Style definition 8: video frame div */
+.video-frame {
+  background-color: #1f2926;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.video-frame iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Style definition 9: anchor / jump link styling */
+.jump-links {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.jump-links a {
+  color: #fdfaf3;
+  background-color: #b9714f;
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  margin: 0 0.3rem;
+  display: inline-block;
+}
+
+.jump-links a:hover {
+  background-color: #fdfaf3;
+  color: #b9714f;
+}
+
+/* Style definition 10: webapp call-to-action div */
+.app-cta {
+  background-color: #2f3b35;
+  color: #fdfaf3;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border-radius: 6px;
+  margin-top: 3rem;
+}
+
+.app-cta a {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #fdfaf3;
+  color: #2f3b35;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+}
+
+.app-cta a:hover {
+  background-color: #b9714f;
+  color: #fdfaf3;
+}
+
+/* Style definition 11: footer nav back to professional pages */
+.scratch-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #e7ddca;
+  font-size: 0.9rem;
+}
+
+.scratch-footer a {
+  color: #fdfaf3;
+  text-decoration: underline;
+}
